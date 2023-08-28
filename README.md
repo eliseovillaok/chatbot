@@ -1,2 +1,0 @@
-# chatbot
-ChatBOT de turismo.
