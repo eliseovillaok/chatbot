@@ -1,0 +1,11 @@
+version: "3.1"
+
+stories:
+  # Iniciar la conversacion
+  - story: Conversacion inicial 1
+    steps:
+      - intent: saludo
+      - action: utter_greet
+      - intent: como_andas
+      - action: utter_como_andas_response
+      - intent: mood_good

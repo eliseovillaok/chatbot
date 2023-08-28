@@ -1,0 +1,93 @@
+version: "3.1"
+
+nlu:
+  - intent: saludo
+    examples: |
+      - hello
+      - hi
+      - Hola
+      - Holis
+      - holi
+      - buenas
+      - Buen día
+      - Buenos días
+      - Buenas tardes
+      - Buenas noches
+      - Hola disculpa la hora
+
+  - intent: como_andas
+    examples: |
+      - como andas
+      - como te va
+      - todo bien
+      - Como andas?
+      - Como te va?
+      - Que tal?
+      - que tal
+      - Todo bien?
+
+  - intent: mood_good
+    examples: |
+      - bien
+      - muy bien
+      - de maravilla
+      - ando joya
+      - estoy bien
+      - me encuentro bien
+      - bien bien
+      - tranquilo
+
+  - intent: me_alegro
+    examples: |
+      - me alegro!
+      - me alegro
+      - Me alegro
+      - Mejor asi!
+
+  - intent: despedida
+    examples: |
+      - hasta luego!
+      - hasta pronto
+      - nos vemos
+      - chau
+      - que tengas un buen dia
+      - que tenga una buena tarde
+      - que tenga una buena noche
+      - muchas gracias, hasta luego
+      - nos vemos mañana
+
+  - intent: afirmacion
+    examples: |
+      - si
+      - perfecto
+      - joya
+      - de acuerdo
+      - correcto
+      - barbaro
+      - ok
+      - okey
+      - dale
+      - re bien
+      - claro
+      - de una
+      - diez puntos
+      - espectacular
+
+  - intent: negacion
+    examples: |
+      - no
+      - para nada
+      - n
+      - la verdad no
+      - de ninguna manera
+      - no estoy de acuerdo
+      - no es una opcion
+      - no me gusta
+      - no
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
