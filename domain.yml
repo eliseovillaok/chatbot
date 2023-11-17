@@ -1,0 +1,116 @@
+version: "3.1"
+entities:
+  - nombre
+  - destino
+  - alojamiento
+  - dias
+  - presupuesto
+  - edad
+  - vehiculo
+  - gama_celular
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: nombre
+    influence_conversation: true
+  destination:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: destino
+  duration:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: dias
+  budget:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: presupuesto
+  accommodament:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: alojamiento
+  years_old:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: edad
+forms:
+  trip_form:
+    required_slots:
+      - name
+      - destination
+      - duration
+      - accommodament
+      - budget
+intents:
+  - affirm
+  - bot_challenge
+  - deny
+  - goodbye
+  - greet
+  - help
+  - inform_alojamiento
+  - inform_destino
+  - inform_dias
+  - inform_nombre
+  - inform_presupuesto
+  - reportar_datos_tree
+  - consulta_trayecto
+responses:
+  utter_greet:
+    - text: Hola!
+    - text: Buenas!
+    - text: Que tal!
+  utter_help:
+    - text: Te puedo ayudar en algo?
+    - text: Comentame, en que te puedo ayudar?
+    - text: En que puedo ayudarte?
+  utter_ask_trip_form_name:
+    - text: Con quien tengo el gusto de hablar?
+  utter_ask_trip_form_destination:
+    - text: Comentame {name}, a donde queres viajar?
+    - text: Perfecto {name}, cual seria el destino de tu preferencia?
+  utter_ask_trip_form_duration:
+    - text: Ok, y por cuantos dias?
+    - text: Joya, me decis la cantidad de dias que queres viajar?
+  utter_ask_trip_form_budget:
+    - text: |-
+        Tenes algun presupuesto definido?
+        Si es asi te pido por favor que me digas el monto en pesos, puede ser un aproximado tambien
+  utter_ask_trip_form_accommodament:
+    - text: |-
+        Preferis un hotel, una casa o un departamento?
+        Por ahora solo ofrecemos este tipo de alojamientos
+  utter_trip_form_content:
+    - text: |-
+        Por favor digame si los anote bien ok?
+        Destino: {destination}; Duracion:{duration} dias; Presupuesto:${budget}; Alojamiento:{accommodament}
+
+  utter_edad: # PRUEBA
+    - text: Cuantos años tenes?
+    - text: Me podrias decir tu edad?
+
+  utter_datos_trayecto: # PRUEBA
+    - text: |-
+        Vas en un vehiculo particular? (auto/moto) o no lo es? (colectivo/avion)
+        y acerca de tu celular, es gama alta, baja, media, o no sabes?
+
+  utter_goodbye:
+    - text: Nos vemos!
+    - text: Hasta pronto
+    - text: Que tenga buen dia.
+  utter_iamabot:
+    - text: Soy un bot construido por Eliseo Villa.
+actions:
+  - devolver_viajes
+  - validate_trip_form
+  - obtener_trayecto
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

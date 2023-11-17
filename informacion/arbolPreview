@@ -1,0 +1,17 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<vehiculo &le; 0.5<br/>gini = 0.493<br/>samples = 50<br/>value = [28, 22]<br/>class = 0>, fillcolor="#f9e4d5"] ;
+1 [label=<gini = 0.0<br/>samples = 19<br/>value = [19, 0]<br/>class = 0>, fillcolor="#e58139"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<gama_celular_baja &le; 0.5<br/>gini = 0.412<br/>samples = 31<br/>value = [9, 22]<br/>class = 1>, fillcolor="#8ac5f0"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label=<edad &le; 17.5<br/>gini = 0.083<br/>samples = 23<br/>value = [1, 22]<br/>class = 1>, fillcolor="#42a1e6"] ;
+2 -> 3 ;
+4 [label=<gini = 0.0<br/>samples = 1<br/>value = [1, 0]<br/>class = 0>, fillcolor="#e58139"] ;
+3 -> 4 ;
+5 [label=<gini = 0.0<br/>samples = 22<br/>value = [0, 22]<br/>class = 1>, fillcolor="#399de5"] ;
+3 -> 5 ;
+6 [label=<gini = 0.0<br/>samples = 8<br/>value = [8, 0]<br/>class = 0>, fillcolor="#e58139"] ;
+2 -> 6 ;
+}

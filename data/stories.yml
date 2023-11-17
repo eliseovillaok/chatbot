@@ -1,0 +1,21 @@
+version: "3.1"
+
+stories:
+  - story: Consulta del trayecto o ruta # PRUEBA
+    steps:
+      - intent: consulta_trayecto
+      - slot_was_set:
+          - years_old: null
+      - action: utter_edad
+      - action: utter_datos_trayecto
+      - intent: reportar_datos_tree
+      - action: obtener_trayecto
+
+  - story: Consulta del trayecto o ruta [CON EDAD]
+    steps:
+      - intent: consulta_trayecto
+      - slot_was_set:
+          - years_old
+      - action: utter_datos_trayecto
+      - intent: reportar_datos_tree
+      - action: obtener_trayecto

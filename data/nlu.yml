@@ -1,0 +1,355 @@
+version: "3.1"
+nlu:
+  - lookup: nombre
+    examples: |
+      - Juan
+      - María
+      - José
+      - Ana
+      - Carlos
+      - Laura
+      - Alberto
+      - Patricia
+      - Roberto
+      - Silvia
+      - Manuel
+      - Carolina
+      - Francisco
+      - Adriana
+      - Ignacio
+      - Gabriela
+      - Diego
+      - Susana
+      - Javier
+      - Natalia
+      - Miguel
+      - Valeria
+      - Martín
+      - Claudia
+      - Esteban
+      - Graciela
+      - Sergio
+      - Paula
+      - Alejandro
+      - Roxana
+      - Gustavo
+      - Mariana
+      - Juan
+      - Carlos
+      - María
+      - Laura
+      - Federico
+      - Verónica
+      - Andrés
+      - Lorena
+      - Ricardo
+      - Romina
+      - Ariel
+      - Florencia
+      - Hernán
+      - Patricia
+      - Germán
+      - Celeste
+      - Emilio
+      - Soledad
+      - Daniel
+      - Lourdes
+      - Sophia
+      - Emma
+      - Isabella
+      - olivia
+      - ava
+      - emily
+      - Abigail
+      - mia
+      - Madison
+      - Elizabeth
+      - sofia
+      - Giulia
+      - martina
+      - Giorgia
+      - sara
+      - emma
+      - Aurora
+      - Chiara
+      - Alice
+      - Alessia
+      - Charlotte
+      - Ruby
+      - Lilly
+      - Olivia
+      - Chloe
+      - Sophie
+      - Emily
+      - Mia
+      - Amelia
+      - Ava
+      - Sofia
+      - Florencia
+      - Valentina
+      - Isidora
+      - Antonella
+      - Antonia
+      - Emilia
+      - Catalina
+      - Fernanda
+      - Lucía
+      - María
+      - Paula
+      - Daniela
+      - Sara
+      - Carla
+      - Martina
+      - Sofía
+      - Julia
+      - Alba
+      - Miguel Ángel
+      - Juan Carlos
+      - Carlos Alberto
+      - José Luis
+      - Juan Manuel
+      - Jackson
+      - Aiden
+      - Liam
+      - Lucas
+      - Noah
+      - Benjamín
+      - Vicente
+      - Martín
+      - Matías
+      - Joaquín
+      - Luis
+      - Alberto
+      - Edgar
+      - Martin
+      - Alejandro
+      - alejandro
+      - Diego
+      - Gabriel
+      - Samuel
+      - santiago
+      - Matias
+      - Sebastián
+      - Mateo
+      - Nicolás
+      - Harry
+      - Jack
+      - Oliver
+      - Charlie
+      - James
+      - lucas
+      - Enzo
+      - Nathan
+      - Mathis
+      - Louis
+      - Maximilian
+      - Alexander
+      - Paul
+      - Leon
+      - Lukas
+      - Davi
+      - Miguel
+      - Arthur
+      - Matheus
+      - Nahuel
+      - nahuel
+      - Eliseo
+      - eliseo
+      - Sabino
+      - sabino
+      - Belen
+      - belen
+      - Valentina
+      - valentina
+      - Florencia
+      - florencia
+      - Hernan
+      - hernan
+      - Guillermo
+      - guillermo
+      - Marcelo
+      - marcelo
+      - Oscar
+      - oscar
+      - Federico
+      - federico
+      - Analia
+      - analia
+      - Santiago
+      - Elias
+      - Camila
+      - camila
+      - Ludmila
+      - ludmila
+      - Juan Cruz
+      - Ernesto
+      - Adrian
+      - Sabi
+      - Valen
+      - Val
+      - Nahu
+      - Nahue
+      - Santi
+      - Eli
+      - Fede
+      - Belu
+      - Bel
+      - Kate
+      - Cate
+      - Adri
+  - intent: greet
+    examples: |
+      - Hola, como andas? soy [Pedro](nombre)
+      - Hola, mi nombre es [Analia](nombre)
+      - Buen día, me llamo [Pedro](nombre)
+      - Buenas tardes, soy [Juan](nombre)
+      - Buenas, soy [Eliseo](nombre)
+      - hello, i'm [Jhon](nombre)
+      - hi, i am [Peter](nombre)
+      - Hola disculpa la hora
+      - Buenas noches
+      - Buenos días
+      - Buenas
+      - Hola
+      - Hola que tal
+  - intent: inform_nombre
+    examples: |
+      - Soy [Eliseo](nombre)
+      - Mi nombre es [Juan](nombre)
+      - Me llaman [Matias](nombre)
+      - Me llamo [Pepe](nombre)
+      - Me dicen [Eliseo](nombre)
+  - intent: help
+    examples: |
+      - ¿Me podrias proporcionar información sobre el turismo regional?
+      - Estoy interesado en un paquete de viaje para mis vacaciones
+      - Estoy planeando un viaje y necesito información
+      - Necesito ayuda para elegir un paquete turístico
+      - ¿Podrias recomendarme un paquete turístico?
+      - Estoy buscando opciones para mis vacaciones
+      - Quisiera saber sobre el turismo en la zona
+      - Busco información para unas vacaciones
+      - Me gustaria irme de vacaciones
+      - Quiero viajar a algún lugar
+      - Busco paquetes turísticos
+      - quiero irme de vacaciones por un par de dias
+  - intent: inform_destino
+    examples: |
+      - Mi destino es [Mar del Plata](destino)
+      - Quiero ir a la ciudad de [Tandil](destino)
+      - Me encantaria explorar [Buenos Aires](destino)
+      - Mi destino de eleccion es [Tandil](destino)
+      - Estoy considerando un viaje a [Cordoba](destino)
+      - Tengo muchas ganas de visitar [Mar del Plata](destino)
+      - Quiero viajar a [Mar del Plata](destino)
+      - Me gustaria viajar a [Olavarria](destino)
+  - intent: inform_dias
+    examples: |
+      - Voy a viajar por [10](dias) dias
+      - Quiero ir [15](dias) dias
+      - Como maximo quiero que dure [20](dias) dias
+      - Voy a viajar por [3](dias) dias para una escapada corta
+      - Quiero ir [7](dias) dias para disfrutar mas la playa
+      - Quiero ir [4](dias) dias nada mas
+      - [20](dias) dias
+      - [7](dias) dias
+
+  - intent: inform_presupuesto
+    examples: |
+      - Tengo [10000](presupuesto) pesos de presupuesto
+      - Tengo [mil](presupuesto) pesos
+      - Tengo [dosmil](presupuesto) pesos
+      - Tengo [tresmil](presupuesto) pesos
+      - Tengo [cuatrocientosmil](presupuesto) pesos
+      - Puedo gastar [1000](presupuesto) pesos
+      - [100000](presupuesto) pesos tengo para gastar
+      - Mi presupuesto es de [1234856](presupuesto) pesos
+      - Mi presupuesto es de [3124162](presupuesto)
+      - [3123412](presupuesto) pesos
+
+  - intent: inform_alojamiento
+    examples: |
+      - La verdad prefiero un [hotel](alojamiento)
+      - Me interesa alojarme en una [casa](alojamiento)
+      - Quisiera pasar la noche en un [departamento](alojamiento)
+      - La verdad, prefiero un [hotel](alojamiento) para unas vacaciones de lujo
+      - Estoy considerando un [departamento](alojamiento) para mayor comodidad
+      - Quiero dormir en un [hotel](alojamiento), que me ofreces?
+  - intent: goodbye
+    examples: |
+      - muchas gracias, hasta luego
+      - que tenga una buena tarde
+      - que tenga una buena noche
+      - que tengas un buen dia
+      - nos vemos mañana
+      - hasta pronto
+      - hasta luego!
+      - nos vemos
+      - chau
+  - intent: affirm
+    examples: |
+      - si
+      - esta bien
+      - perfecto
+      - joyaa
+      - joya
+      - listoo
+      - listo
+      - perfectoo
+      - diez puntosss
+      - okaaa
+      - oka
+      - de acuerdo
+      - correcto
+      - barbaro
+      - ok
+      - okey
+      - dale
+      - re bien
+      - claro
+      - de una
+      - diez puntos
+      - espectacular
+      - oki
+  - intent: deny
+    examples: |
+      - no
+      - para nada
+      - la verdad no
+      - de ninguna manera
+      - no estoy de acuerdo
+      - no es una opcion
+      - no me gusta
+      - mejor no
+      - no gracias
+      - no me convence
+  - intent: consulta_trayecto
+    examples: |
+      - ¿Como puedo ir a ese destino?
+      - ¿Cual es el trayecto hacia alli?
+      - ¿Que ruta me recomendas tomar para llegar?
+      - ¿Como llego alla?
+      - ¿Por donde puedo agarrar para llegar?
+      - ¿Cual es la mejor manera de llegar a [Mar del Plata](destino) desde aqui?
+      - ¿Puedes mostrarme cómo llegar a [Tandil](destino) en el mapa?
+      - ¿Qué camino debo seguir para llegar a [Buenos Aires](destino)?
+      - ¿Cuánto tiempo tomará llegar a [Azul](destino) desde aquí?
+      - ¿Cuál es la ruta más rápida para llegar a [Mar del Plata](destino) en hora pico?
+      - ¿Hay alguna ruta mejor para llegar a [Tandil](destino)?
+
+  - intent: reportar_datos_tree # PRUEBA
+    examples: |
+      - tengo [15](edad) años, es [particular](vehiculo) y mi celular es de gama [alta](gama_celular)
+      - voy en [particular](vehiculo), tengo [21](edad) años y mi celu es de gama [media](gama_celular)
+      - mi celu es de gama [media](gama_celular), voy en [colectivo](vehiculo), y tengo [21](edad) años
+      - voy en [particular](vehiculo), tengo [36](edad) años y [no se](gama_celular) de que gama es mi celular
+      - pienso viajar en [colectivo](vehiculo), tengo un celular gama [media](gama_celular) y tengo [33](edad) años
+      - [60](edad) años, viajo en [particular](vehiculo) y [no se](gama_celular) la gama de mi celular
+      - mi edad es de [13](edad) años, mi celular es de gama [baja](gama_celular) y viajo en [colectivo](vehiculo)
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?

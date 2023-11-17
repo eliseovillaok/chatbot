@@ -1,0 +1,41 @@
+version: "3.1"
+
+rules:
+  - rule: Despedida
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Bienvenida
+    steps:
+      - or:
+          - intent: greet
+          - intent: inform_nombre
+      - action: utter_greet
+      - action: utter_help
+
+  - rule: Activar 'Trip Form'
+    steps:
+      - intent: help
+      - action: trip_form
+      - active_loop: trip_form
+
+  - rule: Enviar 'Trip Form'
+    condition:
+      # Condicion que pide que el formulario esté activo.
+      - active_loop: trip_form
+    steps:
+      # Desactivacion de formulario.
+      - action: trip_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      # Acciones que correrá luego de enviar el formulario.
+      - action: utter_trip_form_content
+      - intent: affirm
+      - action: devolver_viajes
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot

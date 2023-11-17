@@ -1,0 +1,101 @@
+{
+    "viajes": [
+        {
+            "id": 1,
+            "cantidad_personas": 2,
+            "ciudad_destino": "Mar del Plata",
+            "dias": 5,
+            "precio": 100000,
+            "alojamiento": "hotel"
+        },
+        {
+            "id": 2,
+            "cantidad_personas": 4,
+            "ciudad_destino": "Tandil",
+            "dias": 3,
+            "precio": 120000,
+            "alojamiento": "casa"
+        },
+        {
+            "id": 3,
+            "cantidad_personas": 3,
+            "ciudad_destino": "Mar del Plata",
+            "dias": 4,
+            "precio": 100000,
+            "alojamiento": "departamento"
+        },
+        {
+            "id": 4,
+            "cantidad_personas": 1,
+            "ciudad_destino": "Tandil",
+            "dias": 2,
+            "precio": 20000,
+            "alojamiento": "casa"
+        },
+        {
+            "id": 5,
+            "cantidad_personas": 3,
+            "ciudad_destino": "Tandil",
+            "dias": 4,
+            "precio": 80000,
+            "alojamiento": "hotel"
+        },
+        {
+            "id": 6,
+            "cantidad_personas": 2,
+            "ciudad_destino": "Mar del Plata",
+            "dias": 7,
+            "precio": 150000,
+            "alojamiento": "departamento"
+        },
+        {
+            "id": 7,
+            "cantidad_personas": 5,
+            "ciudad_destino": "Tandil",
+            "dias": 6,
+            "precio": 140000,
+            "alojamiento": "casa"
+        },
+        {
+            "id": 8,
+            "cantidad_personas": 2,
+            "ciudad_destino": "Mar del Plata",
+            "dias": 4,
+            "precio": 90000,
+            "alojamiento": "hotel"
+        },
+        {
+            "id": 9,
+            "cantidad_personas": 3,
+            "ciudad_destino": "Tandil",
+            "dias": 5,
+            "precio": 110000,
+            "alojamiento": "casa"
+        },
+        {
+            "id": 10,
+            "cantidad_personas": 2,
+            "ciudad_destino": "Mar del Plata",
+            "dias": 3,
+            "precio": 80000,
+            "alojamiento": "departamento"
+        },
+        {
+            "id": 11,
+            "cantidad_personas": 4,
+            "ciudad_destino": "Tandil",
+            "dias": 7,
+            "precio": 160000,
+            "alojamiento": "casa"
+        },
+        {
+            "id": 12,
+            "cantidad_personas": 3,
+            "ciudad_destino": "Mar del Plata",
+            "dias": 6,
+            "precio": 120000,
+            "alojamiento": "hotel"
+        }
+    ]
+}
+
