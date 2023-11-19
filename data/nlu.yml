@@ -235,13 +235,13 @@ nlu:
       - quiero irme de vacaciones por un par de dias
   - intent: inform_destino
     examples: |
-      - Mi destino es [Mar del Plata](destino)
+      - Mi destino es [Mar del plata](destino)
       - Quiero ir a la ciudad de [Tandil](destino)
       - Me encantaria explorar [Buenos Aires](destino)
       - Mi destino de eleccion es [Tandil](destino)
       - Estoy considerando un viaje a [Cordoba](destino)
-      - Tengo muchas ganas de visitar [Mar del Plata](destino)
-      - Quiero viajar a [Mar del Plata](destino)
+      - Tengo muchas ganas de visitar [Mar del plata](destino)
+      - Quiero viajar a [Mar del plata](destino)
       - Me gustaria viajar a [Olavarria](destino)
   - intent: inform_dias
     examples: |
@@ -330,11 +330,11 @@ nlu:
       - ¿Que ruta me recomendas tomar para llegar?
       - ¿Como llego alla?
       - ¿Por donde puedo agarrar para llegar?
-      - ¿Cual es la mejor manera de llegar a [Mar del Plata](destino) desde aqui?
+      - ¿Cual es la mejor manera de llegar a [Mar del plata](destino) desde aqui?
       - ¿Puedes mostrarme cómo llegar a [Tandil](destino) en el mapa?
       - ¿Qué camino debo seguir para llegar a [Buenos Aires](destino)?
       - ¿Cuánto tiempo tomará llegar a [Azul](destino) desde aquí?
-      - ¿Cuál es la ruta más rápida para llegar a [Mar del Plata](destino) en hora pico?
+      - ¿Cuál es la ruta más rápida para llegar a [Mar del plata](destino) en hora pico?
       - ¿Hay alguna ruta mejor para llegar a [Tandil](destino)?
 
   - intent: reportar_datos_tree # PRUEBA
@@ -349,7 +349,19 @@ nlu:
 
   - intent: bot_challenge
     examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
+      - sos un bot?
+      - sos humano?
+      - yo estoy hablando con un bot?
+      - estoy hablando con un bot?
+      - quien te creo?
+      - sos un humano o un bot?
+
+  - intent: consulta_precio
+    examples: |
+      - Cual es el precio para viajar a [Mar del plata](destino)?
+      - Por favor decime el costo para viajar y hospedarme en [Mar del plata](destino).
+      - Cuanto cuesta alquilar en [Tandil](destino)?
+      - Queria saber el precio de un alquiler en [Olavarria](destino).
+      - Me interesa conocer el precio de alquiler en [Tandil](destino).
+      - Cuanto sale ir a [Olavarria](destino).
+      - Cuanto cuesta viajar a [Mar del plata](destino).

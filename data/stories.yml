@@ -19,3 +19,8 @@ stories:
       - action: utter_datos_trayecto
       - intent: reportar_datos_tree
       - action: obtener_trayecto
+
+  - story: Consultar precios hacia un destino
+    steps:
+      - intent: consulta_precio
+      - action: devolver_precio

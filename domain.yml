@@ -40,6 +40,7 @@ slots:
     mappings:
       - type: from_entity
         entity: edad
+    influence_conversation: true
 forms:
   trip_form:
     required_slots:
@@ -62,6 +63,7 @@ intents:
   - inform_presupuesto
   - reportar_datos_tree
   - consulta_trayecto
+  - consulta_precio
 responses:
   utter_greet:
     - text: Hola!
@@ -105,11 +107,19 @@ responses:
     - text: Nos vemos!
     - text: Hasta pronto
     - text: Que tenga buen dia.
+
+  utter_goodbye_name:
+    - text: Nos vemos {name}!
+    - text: Hasta pronto {name}
+    - text: Que tenga buen dia {name}.
   utter_iamabot:
     - text: Soy un bot construido por Eliseo Villa.
+    - text: Por si no lo sabias, soy un bot creado por Eliseo Villa :)
 actions:
   - devolver_viajes
+  - devolver_precio
   - validate_trip_form
+  - reset_slots_viaje
   - obtener_trayecto
 session_config:
   session_expiration_time: 60

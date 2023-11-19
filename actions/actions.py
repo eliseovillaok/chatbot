@@ -22,13 +22,21 @@ import json
 import os.path
 
 
+class reset_slots_viaje(Action):
+    def name(self) -> Text:
+        return "reset_slots_viaje"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        return [SlotSet("destination", None), SlotSet("duration", None), SlotSet("budget", None), SlotSet("accommodament", None)]
+
+
 class action_default_fallback(Action):
     def name(self) -> Text:
         return "action_default_fallback"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(
-            text="Disculpame, no entendi bien, podes repetirlo?")
+            "Disculpame, no entendi bien, podes repetirlo?")
         return []
 
 
@@ -55,6 +63,9 @@ class manejo_archivo_viajes():
         return ret
 
 
+data_viajes = manejo_archivo_viajes.cargar()
+
+
 class manejo_archivo_usuarios():
     @staticmethod
     def cargar():
@@ -79,13 +90,15 @@ def clean_name(name):
 
 
 def clean_number(number):
-    cleaned_numbers = [c for c in number if c.isdigit()]
-    cleaned_number_str = ''.join(cleaned_numbers)
+    if isinstance(number, str):
+        cleaned_numbers = [c for c in number if c.isdigit()]
+        cleaned_number_str = ''.join(cleaned_numbers)
 
-    if cleaned_number_str:
-        return int(cleaned_number_str)
-    else:
-        return 0  # O puedes retornar otro valor predeterminado si lo prefieres
+        if cleaned_number_str:
+            return int(cleaned_number_str)
+        else:
+            return 0  # O puedes retornar otro valor predeterminado si lo prefieres
+    return number
 
 
 class validar_trip_form(FormValidationAction):
@@ -121,7 +134,7 @@ class validar_trip_form(FormValidationAction):
         """Validacion del valor de 'budget'"""
 
         budget = int(clean_number(slot_value))
-        if (budget == 0):
+        if (budget <= 0):
             dispatcher.utter_message(
                 text="Necesito un valor de presupuesto valido\npor lo menos un aproximado.")
             return {"budget": None}
@@ -132,7 +145,7 @@ class validar_trip_form(FormValidationAction):
 
         duration = int(clean_number(slot_value))
 
-        if (duration == 0):
+        if (duration == 0 or duration > 1000):
             dispatcher.utter_message(
                 text="Necesito un numero de dias valido\npor lo menos un aproximado.")
             return {"duration": None}
@@ -162,29 +175,40 @@ class devolver_viajes(Action):
     # def devolver_viajes_cercanos():
 
     # Si hizo el formulario
-    def devolver_viajes_consulta(self, dispatcher, tracker) -> List[Dict[Text, Any]]:
+    def devolver_viajes_consulta(self, destino=None, dias=None, presupuesto=None, alojamiento=None):
+        viajes_coincidentes = []
+        for viaje in data_viajes['viajes']:
+            condiciones = []
+
+            if destino is not None:
+                condiciones.append(
+                    str(viaje['ciudad_destino']).lower() == destino.lower())
+
+            if dias is not None:
+                condiciones.append(viaje["dias"] == dias)
+
+            if presupuesto is not None:
+                condiciones.append(viaje["precio"] <= presupuesto)
+
+            if alojamiento is not None:
+                condiciones.append(
+                    str(viaje["alojamiento"]).lower() == alojamiento.lower())
+
+            if all(condiciones):
+                viajes_coincidentes.append(viaje)
+
+        return viajes_coincidentes
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Obtenemos el valor de los slots
         destino = tracker.get_slot("destination")
         dias = tracker.get_slot("duration")
         presupuesto = tracker.get_slot("budget")
         alojamiento = tracker.get_slot("accommodament")
 
-        viajes_coincidentes = []
-        if destino and dias and presupuesto and alojamiento:
-            data_viajes = manejo_archivo_viajes.cargar()
-            for viaje in data_viajes['viajes']:
-                if (
-                    str(viaje['ciudad_destino']).lower() == destino.lower() and
-                    viaje["precio"] <= presupuesto and
-                    viaje["dias"] == dias and
-                    str(viaje["alojamiento"]).lower() == alojamiento.lower()
-                ):
-                    viajes_coincidentes.append(viaje)
+        viajes = self.devolver_viajes_consulta(
+            destino, dias, presupuesto, alojamiento)
 
-        return viajes_coincidentes
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        viajes = self.devolver_viajes_consulta(dispatcher, tracker)
         if not viajes:
             dispatcher.utter_message(
                 "Sepa disculparnos, no tenemos viajes disponibles para usted.")
@@ -192,7 +216,7 @@ class devolver_viajes(Action):
             cantidad = 1
             mensaje_viajes = "Aquí están los viajes disponibles:\n"
             for viaje in viajes:
-                mensaje_viajes += f"{cantidad}. Destino: {viaje['ciudad_destino']}, Duración: {viaje['dias']} días, Precio: ${viaje['precio']}, Alojamiento: {viaje['alojamiento']}\n"
+                mensaje_viajes += f"{cantidad}. ID del VIAJE: {viaje['id']}, Destino: {viaje['ciudad_destino']}, Duración: {viaje['dias']} días, Precio: ${viaje['precio']}, Alojamiento: {viaje['alojamiento']}\n"
                 cantidad += 1
             dispatcher.utter_message(text=mensaje_viajes)
 
@@ -291,3 +315,40 @@ class obtener_trayecto(Action):  # PRUEBA
                 text="Te recomiendo buscar el trayecto por Google Maps (se puede desde ingresar desde Chrome u otro navegador)")
 
         return []
+
+
+class devolver_precio(Action):
+    def name(self) -> Text:
+        return "devolver_precio"
+
+    def devolver_precio(self, dispatcher: CollectingDispatcher, destino):
+        viajes_coincidentes = []
+        menor_precio = 999999999999
+        mayor_precio = -1
+
+        for viaje in data_viajes['viajes']:
+            if (str(viaje['ciudad_destino']).lower() == destino.lower()):
+                viajes_coincidentes.append(viaje)
+
+        if viajes_coincidentes:
+            for viaje in viajes_coincidentes:
+                precio_viaje = int(viaje['precio'])
+                if precio_viaje < menor_precio:
+                    menor_precio = precio_viaje
+                if precio_viaje > mayor_precio:
+                    mayor_precio = precio_viaje
+            dispatcher.utter_message(
+                f"El costo de los viajes a {destino} varian desde ${menor_precio} hasta ${mayor_precio}")
+        else:
+            dispatcher.utter_message(
+                f"No tenemos viajes a {destino}. Por favor comprueba el nombre o cambia el destino.")
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        destino = tracker.get_slot("destination")
+        if destino:
+            destino = clean_name(destino)
+            self.devolver_precio(dispatcher, destino)
+        else:
+            dispatcher.utter_message(
+                "No entendi tu destino, podrias reformular la pregunta por favor?")
+        return [SlotSet("destination", None)]

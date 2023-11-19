@@ -1,0 +1,16 @@
+1.Consulta Directa:
+"¿Cuál es el precio actual para reservar un vuelo a [destino] en [fecha]?"
+"Dime el costo de reservar un hotel en [destino] para [número de noches] noches."
+"¿Cuánto cuesta alquilar un coche en [destino] por [número de días] días?"
+
+2. Comparación de Precios:
+"¿Cuál es la mejor oferta para un vuelo a [destino] entre [fecha1] y [fecha2]?"
+"Compara los precios de los hoteles en [destino] para [fecha1] y [fecha2]."
+
+3,Especificación de Preferencias:
+"Busca vuelos a [destino] con [aerolínea] y dame las opciones de precios."
+"Encuentra hoteles en [destino] con al menos [número de estrellas] estrellas."
+
+4.Preguntas Detalladas:
+"Quiero saber si hay descuentos o promociones para vuelos a [destino] en [fecha]."
+"¿Hay alguna oferta especial para paquetes de vuelo y hotel a [destino]?"
