@@ -3,7 +3,7 @@ version: "3.1"
 stories:
   - story: Consulta del trayecto o ruta # PRUEBA
     steps:
-      - intent: consulta_trayecto
+      - intent: consultar_trayecto
       - slot_was_set:
           - years_old: null
       - action: utter_edad
@@ -13,7 +13,7 @@ stories:
 
   - story: Consulta del trayecto o ruta [CON EDAD]
     steps:
-      - intent: consulta_trayecto
+      - intent: consultar_trayecto
       - slot_was_set:
           - years_old
       - action: utter_datos_trayecto
@@ -22,5 +22,10 @@ stories:
 
   - story: Consultar precios hacia un destino
     steps:
-      - intent: consulta_precio
+      - intent: consultar_precio
       - action: devolver_precio
+
+  - story: Consultar hospedajes hacia un destino
+    steps:
+      - intent: consultar_listados
+      - action: devolver_viajes

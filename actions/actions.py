@@ -350,5 +350,5 @@ class devolver_precio(Action):
             self.devolver_precio(dispatcher, destino)
         else:
             dispatcher.utter_message(
-                "No entendi tu destino, podrias reformular la pregunta por favor?")
+                "Necesito conocer el destino de su preferencia.")
         return [SlotSet("destination", None)]

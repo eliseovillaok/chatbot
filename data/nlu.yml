@@ -264,8 +264,8 @@ nlu:
       - Puedo gastar [1000](presupuesto) pesos
       - [100000](presupuesto) pesos tengo para gastar
       - Mi presupuesto es de [1234856](presupuesto) pesos
-      - Mi presupuesto es de [3124162](presupuesto)
-      - [3123412](presupuesto) pesos
+      - Mi presupuesto es de $[3124162](presupuesto)
+      - $[3123412](presupuesto) pesos
 
   - intent: inform_alojamiento
     examples: |
@@ -323,7 +323,7 @@ nlu:
       - mejor no
       - no gracias
       - no me convence
-  - intent: consulta_trayecto
+  - intent: consultar_trayecto
     examples: |
       - ¿Como puedo ir a ese destino?
       - ¿Cual es el trayecto hacia alli?
@@ -356,7 +356,7 @@ nlu:
       - quien te creo?
       - sos un humano o un bot?
 
-  - intent: consulta_precio
+  - intent: consultar_precio
     examples: |
       - Cual es el precio para viajar a [Mar del plata](destino)?
       - Por favor decime el costo para viajar y hospedarme en [Mar del plata](destino).
@@ -365,3 +365,16 @@ nlu:
       - Me interesa conocer el precio de alquiler en [Tandil](destino).
       - Cuanto sale ir a [Olavarria](destino).
       - Cuanto cuesta viajar a [Mar del plata](destino).
+  - intent: consultar_listados
+    examples: |
+      - Tenés lugares disponibles para hospedarme [Mar del plata]](destino)?
+      - De casualidad tenes ofertas para hospedarme [Mar del plata](destino)?
+      - Puedo alquilar en [Tandil](destino)?
+      - Puedo reservar algo en [Tandil](destino)?
+      - Quiero conocer el listado de los hospedajes en [Olavarria](destino).
+      - Me interesaria conocer el listado de los hospedajes en [Tandil](destino).
+      - Quiero informacion de los hospedajes en [Tandil](destino).
+      - Me gustaria obtener informacion de hospedajes en [Olavarria](destino).
+      - Quisiera el listado de hospedajes menor a $[10000000](precio) por favor.
+      - Me gustaria alquilar algun [hotel](alojamiento) en [Tandil](destino) menor a unos $[198322022](precio) por favor.
+      -

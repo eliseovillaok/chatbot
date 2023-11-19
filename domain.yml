@@ -62,8 +62,9 @@ intents:
   - inform_nombre
   - inform_presupuesto
   - reportar_datos_tree
-  - consulta_trayecto
-  - consulta_precio
+  - consultar_trayecto
+  - consultar_precio
+  - consultar_listados
 responses:
   utter_greet:
     - text: Hola!
