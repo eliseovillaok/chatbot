@@ -20,12 +20,12 @@ stories:
       - intent: reportar_datos_tree
       - action: obtener_trayecto
 
-  - story: Consultar precios hacia un destino
+  - story: Consultar rango de precios hacia un destino
     steps:
       - intent: consultar_precio
       - action: devolver_precio
 
-  - story: Consultar hospedajes hacia un destino
+  - story: Consultar por listados (condiciones variables)
     steps:
       - intent: consultar_listados
       - action: devolver_viajes

@@ -367,14 +367,18 @@ nlu:
       - Cuanto cuesta viajar a [Mar del plata](destino).
   - intent: consultar_listados
     examples: |
-      - Tenés lugares disponibles para hospedarme [Mar del plata]](destino)?
-      - De casualidad tenes ofertas para hospedarme [Mar del plata](destino)?
-      - Puedo alquilar en [Tandil](destino)?
-      - Puedo reservar algo en [Tandil](destino)?
+      - Tenés lugares para hospedarme [Mar del plata]](destino) a un precio menor de $[1234567812]?
+      - De casualidad tenes ofertas para hospedarme [Mar del plata](destino) por [5](dias) dias?
+      - Puedo alquilar en [Tandil](destino) a un precio menor de $[423124221](precio)?
+      - Puedo reservar algo en [Tandil](destino) por [7](dias)?
       - Quiero conocer el listado de los hospedajes en [Olavarria](destino).
-      - Me interesaria conocer el listado de los hospedajes en [Tandil](destino).
+      - Me interesaria conocer el listado de los [departamento](alojamiento)s en [Tandil](destino).
       - Quiero informacion de los hospedajes en [Tandil](destino).
       - Me gustaria obtener informacion de hospedajes en [Olavarria](destino).
       - Quisiera el listado de hospedajes menor a $[10000000](precio) por favor.
       - Me gustaria alquilar algun [hotel](alojamiento) en [Tandil](destino) menor a unos $[198322022](precio) por favor.
-      -
+      - Dame información sobre los [hotel](alojamiento)es en [Salta](destino).
+      - Quiero ver las opciones de alojamiento en [Ushuaia](destino).
+      - Explícame más sobre los [departamento](alojamiento)s disponibles en [Jujuy](destino).
+      - Necesito una lista de [casa](alojamiento)s en [San Martín de los Andes](destino).
+      - ¿Cuáles son los lugares para alojarse en [La Plata](destino) por menos de $[50000](precio)?
