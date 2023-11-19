@@ -8,6 +8,7 @@ entities:
   - edad
   - vehiculo
   - gama_celular
+  - gusto_destino
 slots:
   name:
     type: text
@@ -56,6 +57,7 @@ intents:
   - goodbye
   - greet
   - help
+  - dar_gracias
   - inform_alojamiento
   - inform_destino
   - inform_dias
@@ -65,6 +67,7 @@ intents:
   - consultar_trayecto
   - consultar_precio
   - consultar_listados
+  - solicitar_recomendacion
 responses:
   utter_greet:
     - text: Hola!
@@ -113,6 +116,11 @@ responses:
     - text: Nos vemos {name}!
     - text: Hasta pronto {name}
     - text: Que tenga buen dia {name}.
+
+  utter_de_nada:
+    - text: No hay de qué.
+    - text: De nada.
+    - text: Un placer.
   utter_iamabot:
     - text: Soy un bot construido por Eliseo Villa.
     - text: Por si no lo sabias, soy un bot creado por Eliseo Villa :)
@@ -122,6 +130,7 @@ actions:
   - validate_trip_form
   - reset_slots_viaje
   - obtener_trayecto
+  - devolver_recomendacion
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

@@ -29,3 +29,7 @@ stories:
     steps:
       - intent: consultar_listados
       - action: devolver_viajes
+  - story: Solicitar recomendacion (por gustos)
+    steps:
+      - intent: solicitar_recomendacion
+      - action: devolver_recomendacion

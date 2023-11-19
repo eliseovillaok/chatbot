@@ -16,6 +16,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import tree
 import graphviz
+import re
 
 from pyswip import Prolog
 import json
@@ -352,3 +353,35 @@ class devolver_precio(Action):
             dispatcher.utter_message(
                 "Necesito conocer el destino de su preferencia.")
         return [SlotSet("destination", None)]
+
+
+class devolver_recomendacion(Action):
+    def name(self) -> Text:
+        return "devolver_recomendacion"
+
+    def devolver_recomendacion(self, gusto):
+        prolog = Prolog()
+        prolog.consult('E:/rasa_class/informacion/base_conocimiento.pl')
+        ciudades = []
+        mensaje = ""
+        if re.search("playa", gusto):
+            ciudades = list(prolog.query("tiene_playa(X)"))
+        elif re.search("sierra", gusto):
+            ciudades = list(prolog.query("tiene_sierras(X)"))
+
+        for ciudad in ciudades:
+            mensaje += ciudad['X'].capitalize() + " - "
+
+        return mensaje
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        gusto = next(tracker.get_latest_entity_values("gusto_destino"), None)
+        if gusto:
+            gusto = clean_name(gusto)
+            mensaje = self.devolver_recomendacion(gusto)
+            dispatcher.utter_message(
+                text=f"Si con gusto!\n {mensaje}\nson las ciudades mas visitadas con {gusto}")
+        else:
+            dispatcher.utter_message(
+                "Por favor dime alguna caracteristica que te interese\npor ejemplo que el lugar tenga playa, sierra, no lo sé, una montaña\nasí podre recomendarte las mejores ciudades")
+        return []

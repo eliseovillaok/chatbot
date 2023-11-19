@@ -13,7 +13,10 @@ rules:
       - slot_was_set:
           - name
       - action: utter_goodbye_name
-
+  - rule: Gracias
+    steps:
+      - intent: dar_gracias
+      - action: utter_de_nada
   - rule: Bienvenida
     steps:
       - or:
@@ -44,7 +47,7 @@ rules:
       - action: devolver_viajes
       - action: reset_slots_viaje
 
-  - rule: Say 'I am a bot' anytime the user challenges
+  - rule: El reto del bot.
     steps:
       - intent: bot_challenge
       - action: utter_iamabot

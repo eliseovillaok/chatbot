@@ -1,5 +1,9 @@
 version: "3.1"
 nlu:
+  - regex: gusto_destino
+    examples: |
+      - \bplaya\b
+      - \bsierra\b
   - lookup: nombre
     examples: |
       - Juan
@@ -311,6 +315,14 @@ nlu:
       - diez puntos
       - espectacular
       - oki
+  - intent: dar_gracias
+    examples: |
+      - muchas gracias!
+      - gracias
+      - te agradezco
+      - muy amable de tu parte
+      - muy amable
+      - te doy las gracias
   - intent: deny
     examples: |
       - no
@@ -382,3 +394,11 @@ nlu:
       - Explícame más sobre los [departamento](alojamiento)s disponibles en [Jujuy](destino).
       - Necesito una lista de [casa](alojamiento)s en [San Martín de los Andes](destino).
       - ¿Cuáles son los lugares para alojarse en [La Plata](destino) por menos de $[50000](precio)?
+  - intent: solicitar_recomendacion
+    examples: |
+      - Me recomendas lugares con [playa](gusto_destino)
+      - Busco alguna recomendacion para hospedarme en un lugar con [sierras](gusto_destino)
+      - Que viajes me ofreces con [sierras](gusto_destino)??
+      - Recomendame algun lugar que tenga [playa](gusto_destino) por favor.
+      - Busco recomendaciones para viajar a un destino con [playa](gusto_destino).
+      - Me das una recomendacion? Quiero viajar a un lugar con [sierras](gusto_destino).
