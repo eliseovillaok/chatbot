@@ -257,23 +257,19 @@ nlu:
       - Quiero ir [15](dias) dias
       - Como maximo quiero que dure [20](dias) dias
       - Voy a viajar por [3](dias) dias para una escapada corta
-      - Quiero ir [7](dias) dias para disfrutar mas la playa
-      - Quiero ir [4](dias) dias nada mas
-      - [20](dias) dias
+      - Quiero ir [7](dias) dias
       - [7](dias) dias
+      - Mi estadia sera de [5](dias) dias
 
   - intent: inform_presupuesto
     examples: |
-      - Tengo [10000](presupuesto) pesos de presupuesto
-      - Tengo [mil](presupuesto) pesos
-      - Tengo [dosmil](presupuesto) pesos
-      - Tengo [tresmil](presupuesto) pesos
-      - Tengo [cuatrocientosmil](presupuesto) pesos
-      - Puedo gastar [1000](presupuesto) pesos
-      - [100000](presupuesto) pesos tengo para gastar
-      - Mi presupuesto es de [1234856](presupuesto) pesos
-      - Mi presupuesto es de $[3124162](presupuesto)
-      - $[3123412](presupuesto) pesos
+      - Mi presupuesto es de [4000000](presupuesto) pesos
+      - Mi presupuesto aborda los [500000](presupuesto) pesos
+      - Tengo disponibles para gastar [$5000000](presupuesto) pesos
+      - Mi billetera tiene [1000000] pesos
+      - Tenes algo por menos de [$1234567](presupuesto) pesos?
+      - Mira, la verdad llego hasta [442.321.321](presupuesto) pesos
+      - Puedo gastar alrededor de [$1000232132](presupuesto) pesos
 
   - intent: inform_alojamiento
     examples: |
@@ -383,7 +379,7 @@ nlu:
       - Cuanto cuesta viajar a [Mar del plata](destino).
   - intent: consultar_listados
     examples: |
-      - Tenés lugares para hospedarme [Mar del plata]](destino) a un precio menor de $[1234567812]?
+      - Tenés lugares para hospedarme [Mar del plata]](destino) a un precio menor de $[1234567812](precio)?
       - De casualidad tenes ofertas para hospedarme [Mar del plata](destino) por [5](dias) dias?
       - Puedo alquilar en [Tandil](destino) a un precio menor de $[423124221](precio)?
       - Puedo reservar algo en [Tandil](destino) por [7](dias)?

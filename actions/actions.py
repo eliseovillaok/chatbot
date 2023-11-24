@@ -408,7 +408,7 @@ class loguear_registrar_usuario(Action):
             "dni": dni,
             "password": password,
             "nombre": tracker.get_slot("name"),
-            "edad": tracker.get_slot("edad")
+            "edad": tracker.get_slot("years_old")
         }
         data_usuarios["usuarios"].append(nuevo_usuario)
         manejo_archivo_usuarios.guardar(data_usuarios)
