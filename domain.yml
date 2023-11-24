@@ -9,7 +9,28 @@ entities:
   - vehiculo
   - gama_celular
   - gusto_destino
+  - id_viaje
+  - dni
+  - password
 slots:
+  dni:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: dni
+
+  password:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: password
+
+  is_authenticated:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: custom
+    influence_conversation: true
   name:
     type: text
     mappings:
@@ -68,6 +89,9 @@ intents:
   - consultar_precio
   - consultar_listados
   - solicitar_recomendacion
+  - reservar_viaje
+  - inform_dni
+  - inform_pass
 responses:
   utter_greet:
     - text: Hola!
@@ -121,6 +145,14 @@ responses:
     - text: No hay de qué.
     - text: De nada.
     - text: Un placer.
+
+  utter_logueo_dni:
+    - text: |-
+        Debes loguearte primero, por favor decime tu dni
+        (si no estas registrado no te hagas problema, te voy a crear un usuario)
+  utter_logueo_pass:
+    - text: Ahora la contraseña de 4 digitos alfanumericos por favor...
+
   utter_iamabot:
     - text: Soy un bot construido por Eliseo Villa.
     - text: Por si no lo sabias, soy un bot creado por Eliseo Villa :)
@@ -131,6 +163,7 @@ actions:
   - reset_slots_viaje
   - obtener_trayecto
   - devolver_recomendacion
+  - loguear_registrar_usuario
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

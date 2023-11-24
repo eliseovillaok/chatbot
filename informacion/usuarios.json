@@ -1,4 +1,10 @@
 {
-    "usuarios":[
-    ]
+  "usuarios": [
+    {
+      "dni": 1,
+      "password": "142a",
+      "nombre": "prueba",
+      "edad": 21
+    }
+  ]
 }

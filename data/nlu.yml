@@ -4,6 +4,9 @@ nlu:
     examples: |
       - \bplaya\b
       - \bsierra\b
+  - regex: dni
+    examples: |
+      - /d{6,10}
   - lookup: nombre
     examples: |
       - Juan
@@ -201,6 +204,7 @@ nlu:
       - Kate
       - Cate
       - Adri
+      - Sofia
   - intent: greet
     examples: |
       - Hola, como andas? soy [Pedro](nombre)
@@ -402,3 +406,27 @@ nlu:
       - Recomendame algun lugar que tenga [playa](gusto_destino) por favor.
       - Busco recomendaciones para viajar a un destino con [playa](gusto_destino).
       - Me das una recomendacion? Quiero viajar a un lugar con [sierras](gusto_destino).
+  - intent: reservar_viaje
+    examples: |
+      - Quiero reservar el viaje [4](id_viaje)
+      - Me gustaria reservar el viaje con id [10](id_viaje)
+      - Te reservo entonces el viaje [40](id_viaje)
+      - Joya, te puedo reservar el viaje [20](id_viaje)?
+      - Perfecto, entonces te pido una reserva para el viaje [1](id_viaje)
+      - Puedo reservarte el que tiene id [2](id_viaje)?
+  - intent: inform_dni
+    examples: |
+      - Mi DNI es [44240445](dni)
+      - Claro, mi numero de documento es [32124542](dni)
+      - Esta bien, mi dni es [8348762322](dni)
+      - dni: [9876512321](dni)
+      - [43234321](dni) es mi dni
+
+  - intent: inform_pass
+    examples: |
+      - Mi contraseña es: [42AS](password)
+      - Claro, quiero que mi contraseña sea [A23A](password)
+      - password: [98z0](password)
+      - [aA45](password)
+      - contraseña: [123A](password)
+      - la contraseña es [12Ji](password)
