@@ -236,7 +236,7 @@ class devolver_viajes(Action):
         return []
 
 
-class obtener_trayecto(Action):  # PRUEBA
+class obtener_trayecto(Action):
     def name(self) -> Text:
         return "obtener_trayecto"
 

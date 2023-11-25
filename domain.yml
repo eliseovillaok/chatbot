@@ -111,34 +111,27 @@ responses:
     - text: |-
         Por favor digame si los anote bien ok?
         Destino: {destination}; Duracion:{duration} dias; Presupuesto:${budget}; Alojamiento:{accommodament}
-
-  utter_edad: # PRUEBA
+  utter_edad:
     - text: Cuantos años tenes?
     - text: Me podrias decir tu edad?
-
-  utter_datos_trayecto: # PRUEBA
+  utter_datos_trayecto:
     - text: |-
         Vas en un vehiculo particular? (auto/moto) o no lo es? (colectivo/avion)
         y acerca de tu celular, es gama alta, baja, media, o no sabes?
-
   utter_goodbye:
     - text: Nos vemos!
     - text: Hasta pronto
     - text: Que tenga buen dia.
-
   utter_goodbye_name:
     - text: Nos vemos {name}!
     - text: Hasta pronto {name}
     - text: Que tenga buen dia {name}.
-
   utter_de_nada:
     - text: No hay de qué.
     - text: De nada.
     - text: Un placer.
-
   utter_logueo_dni:
     - text: Por favor dime tu dni
-
   utter_iamabot:
     - text: Soy un bot construido por Eliseo Villa.
     - text: Por si no lo sabias, soy un bot creado por Eliseo Villa :)

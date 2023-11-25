@@ -24,13 +24,11 @@ rules:
           - intent: inform_nombre
       - action: utter_greet
       - action: utter_help
-
   - rule: Activar 'Trip Form'
     steps:
       - intent: help
       - action: trip_form
       - active_loop: trip_form
-
   - rule: Enviar 'Trip Form'
     condition:
       # Condicion que pide que el formulario esté activo.
@@ -46,7 +44,6 @@ rules:
       - intent: affirm
       - action: devolver_viajes
       - action: reset_slots_viaje
-
   - rule: El reto del bot.
     steps:
       - intent: bot_challenge

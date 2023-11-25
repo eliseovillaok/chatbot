@@ -260,7 +260,6 @@ nlu:
       - Quiero ir [7](dias) dias
       - [7](dias) dias
       - Mi estadia sera de [5](dias) dias
-
   - intent: inform_presupuesto
     examples: |
       - Mi presupuesto es de [$4000000](presupuesto) pesos
@@ -272,7 +271,6 @@ nlu:
       - Puedo gastar alrededor de [$1000232132](presupuesto) pesos
       - [$5000000] tengo para gastar
       - Como maximo [$450000] tengo
-
   - intent: inform_alojamiento
     examples: |
       - La verdad prefiero un [hotel](alojamiento)
@@ -350,8 +348,7 @@ nlu:
       - ¿Cuánto tiempo tomará llegar a [Azul](destino) desde aquí?
       - ¿Cuál es la ruta más rápida para llegar a [Mar del plata](destino) en hora pico?
       - ¿Hay alguna ruta mejor para llegar a [Tandil](destino)?
-
-  - intent: reportar_datos_tree # PRUEBA
+  - intent: reportar_datos_tree
     examples: |
       - tengo [15](edad) años, es [particular](vehiculo) y mi celular es de gama [alta](gama_celular)
       - voy en [particular](vehiculo), tengo [21](edad) años y mi celu es de gama [media](gama_celular)
@@ -360,7 +357,6 @@ nlu:
       - pienso viajar en [colectivo](vehiculo), tengo un celular gama [media](gama_celular) y tengo [33](edad) años
       - [60](edad) años, viajo en [particular](vehiculo) y [no se](gama_celular) la gama de mi celular
       - mi edad es de [13](edad) años, mi celular es de gama [baja](gama_celular) y viajo en [colectivo](vehiculo)
-
   - intent: bot_challenge
     examples: |
       - sos un bot?
@@ -369,7 +365,6 @@ nlu:
       - estoy hablando con un bot?
       - quien te creo?
       - sos un humano o un bot?
-
   - intent: consultar_precio
     examples: |
       - Cual es el precio para viajar a [Mar del plata](destino)?

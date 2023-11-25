@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-  - story: Consulta del trayecto o ruta # PRUEBA
+  - story: Consulta del trayecto o ruta
     steps:
       - intent: consultar_trayecto
       - slot_was_set:
@@ -10,7 +10,6 @@ stories:
       - action: utter_datos_trayecto
       - intent: reportar_datos_tree
       - action: obtener_trayecto
-
   - story: Consulta del trayecto o ruta [CON EDAD]
     steps:
       - intent: consultar_trayecto
@@ -24,7 +23,6 @@ stories:
     steps:
       - intent: consultar_precio
       - action: devolver_precio
-
   - story: Consultar por listados (condiciones variables)
     steps:
       - intent: consultar_listados
@@ -33,7 +31,6 @@ stories:
     steps:
       - intent: solicitar_recomendacion
       - action: devolver_recomendacion
-
   - story: Reservar viaje (sin dni)
     steps:
       - intent: reservar_viaje
@@ -42,7 +39,6 @@ stories:
       - action: utter_logueo_dni
       - intent: inform_dni
       - action: reservar_paquete
-
   - story: Reservar viaje (con dni)
     steps:
       - intent: reservar_viaje
