@@ -11,19 +11,17 @@ entities:
   - gusto_destino
   - id_viaje
   - dni
-  - password
 slots:
+  id_viaje:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: id_viaje
   dni:
     type: text
     mappings:
       - type: from_entity
         entity: dni
-
-  password:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: password
   name:
     type: text
     mappings:
@@ -151,7 +149,7 @@ actions:
   - reset_slots_viaje
   - obtener_trayecto
   - devolver_recomendacion
-  - loguear_registrar_usuario
+  - reservar_paquete
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

@@ -263,13 +263,15 @@ nlu:
 
   - intent: inform_presupuesto
     examples: |
-      - Mi presupuesto es de [4000000](presupuesto) pesos
-      - Mi presupuesto aborda los [500000](presupuesto) pesos
+      - Mi presupuesto es de [$4000000](presupuesto) pesos
+      - Mi presupuesto aborda los [$500000](presupuesto) pesos
       - Tengo disponibles para gastar [$5000000](presupuesto) pesos
-      - Mi billetera tiene [1000000] pesos
+      - Mi billetera tiene [$1000000] pesos
       - Tenes algo por menos de [$1234567](presupuesto) pesos?
       - Mira, la verdad llego hasta [442.321.321](presupuesto) pesos
       - Puedo gastar alrededor de [$1000232132](presupuesto) pesos
+      - [$5000000] tengo para gastar
+      - Como maximo [$450000] tengo
 
   - intent: inform_alojamiento
     examples: |

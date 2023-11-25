@@ -31,16 +31,6 @@ class reset_slots_viaje(Action):
         return [SlotSet("destination", None), SlotSet("duration", None), SlotSet("budget", None), SlotSet("accommodament", None)]
 
 
-class action_default_fallback(Action):
-    def name(self) -> Text:
-        return "action_default_fallback"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(
-            "Disculpame, no entendi bien, podes repetirlo?")
-        return []
-
-
 class manejo_archivo_prolog():
     @staticmethod
     def abrir():
@@ -64,9 +54,6 @@ class manejo_archivo_viajes():
         return ret
 
 
-data_viajes = manejo_archivo_viajes.cargar()
-
-
 class manejo_archivo_usuarios():
     @staticmethod
     def cargar():
@@ -85,7 +72,27 @@ class manejo_archivo_usuarios():
         archivo_guardar.close()
 
 
+class manejo_archivo_reservas():
+    @staticmethod
+    def cargar():
+        if os.path.isfile(path="E:/rasa_class/informacion/reservas.json"):
+            with open('E:/rasa_class/informacion/reservas.json', 'r') as archivo_carga:
+                ret = json.load(archivo_carga)
+                archivo_carga.close()
+        else:
+            ret = {}
+        return ret
+
+    @staticmethod
+    def guardar(Guardar):
+        with open('E:/rasa_class/informacion/reservas.json', 'w') as archivo_guardar:
+            json.dump(Guardar, archivo_guardar, indent=2)
+        archivo_guardar.close()
+
+
+data_viajes = manejo_archivo_viajes.cargar()
 data_usuarios = manejo_archivo_usuarios.cargar()
+data_reservas = manejo_archivo_reservas.cargar()
 
 
 def clean_name(name):
@@ -275,9 +282,10 @@ class obtener_trayecto(Action):  # PRUEBA
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         model = self.train_tree()  # Entrenamos el Arbol y creamos un modelo.
-        edad = next(tracker.get_latest_entity_values('edad'))
-        vehiculo = next(tracker.get_latest_entity_values('vehiculo'))
-        gama_celular = next(tracker.get_latest_entity_values('gama_celular'))
+        edad = next(tracker.get_latest_entity_values('edad'), None)
+        vehiculo = next(tracker.get_latest_entity_values('vehiculo'), None)
+        gama_celular = next(
+            tracker.get_latest_entity_values('gama_celular'), None)
 
         if (edad == None):
             dispatcher.utter_message(text="No entiendo la edad")
@@ -389,4 +397,47 @@ class devolver_recomendacion(Action):
         else:
             dispatcher.utter_message(
                 "Por favor dime alguna caracteristica que te interese\npor ejemplo que el lugar tenga playa, sierra, no lo sé, una montaña\nasí podre recomendarte las mejores ciudades")
+        return []
+
+
+class reservar_paquete(Action):
+    def name(self) -> Text:
+        return "reservar_paquete"
+
+    def existe_viaje(self, id_viaje):
+        for viaje in data_viajes["viajes"]:
+            if id_viaje == viaje["id"]:
+                return True
+        return False
+
+    def existe_reserva(self, id_viaje):
+        for reserva in data_reservas["reservas"]:
+            if id_viaje == reserva["id_viaje"]:
+                return True
+        return False
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        id_viaje = tracker.get_slot("id_viaje")
+        print(id_viaje)
+        if id_viaje:
+            if not self.existe_viaje(id_viaje):
+                dispatcher.utter_message(
+                    "El id viaje ingresado no corresponde a ningun viaje...")
+            else:
+                if self.existe_reserva(id_viaje):
+                    dispatcher.utter_message(
+                        "Ya hay una reserva para ese paquete...")
+                else:
+                    dni = tracker.get_slot("dni")
+                    nueva_reserva = {
+                        "id_viaje": id_viaje,
+                        "dni": dni
+                    }
+                    data_reservas["reservas"].append(nueva_reserva)
+                    manejo_archivo_reservas.guardar(data_reservas)
+                    dispatcher.utter_message(
+                        f"Viaje {id_viaje} reservado correctamente al dni {dni}")
+        else:
+            dispatcher.utter_message(
+                "Necesito un id de viaje valido por favor...")
         return []

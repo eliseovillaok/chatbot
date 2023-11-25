@@ -1,9 +1,24 @@
 {
-    "reservas": [
-        {
-            "id_viaje": 0,
-            "dni": "4123asd2"
-        }
-    ]
+  "reservas": [
+    {
+      "id_viaje": 0,
+      "dni": "4123asd2"
+    },
+    {
+      "id_viaje": "10",
+      "dni": "44240445"
+    },
+    {
+      "id_viaje": "11",
+      "dni": "44240445"
+    },
+    {
+      "id_viaje": "7",
+      "dni": "44240445"
+    },
+    {
+      "id_viaje": "9",
+      "dni": "44240445"
+    }
+  ]
 }
-

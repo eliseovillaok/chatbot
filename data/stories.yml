@@ -34,9 +34,18 @@ stories:
       - intent: solicitar_recomendacion
       - action: devolver_recomendacion
 
-  - story: Reservar viaje
+  - story: Reservar viaje (sin dni)
     steps:
       - intent: reservar_viaje
+      - slot_was_set:
+          - dni: null
       - action: utter_logueo_dni
       - intent: inform_dni
+      - action: reservar_paquete
+
+  - story: Reservar viaje (con dni)
+    steps:
+      - intent: reservar_viaje
+      - slot_was_set:
+          - dni
       - action: reservar_paquete
