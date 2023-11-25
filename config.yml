@@ -38,10 +38,8 @@ pipeline:
 policies:
   - name: MemoizationPolicy
   - name: RulePolicy
-  - name: UnexpecTEDIntentPolicy
-    max_history: 20
-    epochs: 150
+  #- name: UnexpecTEDIntentPolicy
+  #  epochs: 1
   - name: TEDPolicy
-    max_history: 100
     epochs: 100
     constrain_similarities: true

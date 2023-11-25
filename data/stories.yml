@@ -37,10 +37,6 @@ stories:
   - story: Reservar viaje
     steps:
       - intent: reservar_viaje
-      - slot_was_set:
-          - is_authenticated: false
       - action: utter_logueo_dni
       - intent: inform_dni
-      - action: utter_logueo_pass
-      - intent: inform_pass
-      - action: loguear_registrar_usuario
+      - action: reservar_paquete

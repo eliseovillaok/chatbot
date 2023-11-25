@@ -390,39 +390,3 @@ class devolver_recomendacion(Action):
             dispatcher.utter_message(
                 "Por favor dime alguna caracteristica que te interese\npor ejemplo que el lugar tenga playa, sierra, no lo sé, una montaña\nasí podre recomendarte las mejores ciudades")
         return []
-
-
-class loguear_registrar_usuario(Action):
-    def name(self) -> Text:
-        return "loguear_registrar_usuario"
-
-    def validar_usuario(self, dni, password, tracker: Tracker):
-        for usuario in data_usuarios['usuarios']:
-            if dni == usuario['dni']:
-                if password == usuario['password']:
-                    return True
-                else:
-                    return False
-
-        nuevo_usuario = {
-            "dni": dni,
-            "password": password,
-            "nombre": tracker.get_slot("name"),
-            "edad": tracker.get_slot("years_old")
-        }
-        data_usuarios["usuarios"].append(nuevo_usuario)
-        manejo_archivo_usuarios.guardar(data_usuarios)
-        return True
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dni = tracker.get_slot("dni")
-        password = tracker.get_slot("password")
-        logueo_exitoso = self.validar_usuario(dni, password, tracker)
-        if logueo_exitoso:
-            dispatcher.utter_message(
-                "Joya, te pudiste loguear en la plataforma")
-            return [SlotSet("is_authenticated", True)]
-        else:
-            dispatcher.utter_message(
-                "Mmm los datos son incorrectos, intenta de nuevo, chequea que esten bien escritos")
-            return [SlotSet("is_authenticated", False)]
